@@ -1,0 +1,5 @@
+**/build/*
+**/dist/*
+**/txhlf.egg-info/*
+**/.idea/*
+**/__pycache__/*
