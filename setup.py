@@ -37,7 +37,7 @@ if sys.argv[-1] == 'publish':
 
 setup(
     name = 'txhlf',
-    version = '0.0.1',
+    version = '0.02',
     author = 'JA Arce',
     author_email = 'johnandrewarce@gmail.com',
     description = ('txhlf is the official Python SDK for Traxion HLF'),
