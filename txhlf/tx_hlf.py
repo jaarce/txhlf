@@ -58,13 +58,15 @@ class TraxionHLF:
             "args":["""{{\"selector\":{{\"{}\":\"{}\"}}}}""".format(arg[0], arg[1])],
             "chaincodeVer": "v1"
         }
-        import pdb
-        pdb.set_trace()
         url = BASE_URL + "query"
         return self.transact(url, datum)
 
-
     def transact(self, url, datum):
+        """
+        :param url:
+        :param datum:
+        :return content:
+        """
         headers = {'Content-Type': 'application/json'}
         response = requests.post(url, auth=(self.username, self.password), data=json.dumps(datum), headers=headers)
 
@@ -72,14 +74,3 @@ class TraxionHLF:
             return json.loads(response.content)
         else:
             return response.content
-
-
-
-
-if __name__ == "__main__":
-    hlf = TraxionHLF("asset@traxiontech.net", "Bl4ckh0l3@123001")
-    # transaction = hlf.create_transaction("ABC1203", "NCCC", "10.00", datetime.now(), "KaPartner")
-
-    query = hlf.get_transactions(customer_ref_ID='ABC1203')
-    print(query)
-    # print(transaction)

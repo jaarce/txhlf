@@ -26,6 +26,15 @@ if 'install' in sys.argv:
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+requires = [
+    'requests==2.21.0'
+]
+
+if sys.argv[-1] == 'publish':
+    os.system('python setup.py sdist bdist_wheel')
+    os.system('twine upload dist/*')
+    sys.exit()
+
 setup(
     name = 'txhlf',
     version = '0.0.1',
@@ -37,6 +46,8 @@ setup(
     url = 'https://github.com/jaarce/txhlf',
     packages=find_packages(),
     scripts=[],
+    python_requires=">=3.0",
+    install_requires=requires,
     long_description='Why should it be long when there\'s a short description. Simply JAmazing!',
     zip_safe=False,
     classifiers=[
