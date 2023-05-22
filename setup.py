@@ -27,7 +27,7 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 requires = [
-    'requests==2.21.0'
+    'requests==2.31.0'
 ]
 
 if sys.argv[-1] == 'publish':
